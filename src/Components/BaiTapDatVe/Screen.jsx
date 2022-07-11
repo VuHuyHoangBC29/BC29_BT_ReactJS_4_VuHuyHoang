@@ -14,7 +14,7 @@ export default class Screen extends Component {
         <div className="screen"></div>
 
         <div className="mt-3 pl-5">
-          <Seat gheDangDat={this.props.gheDangDat} danhSachGheDangDat={this.props.danhSachGheDangDat} />
+          <Seat/>
         </div>
       </div>
     );

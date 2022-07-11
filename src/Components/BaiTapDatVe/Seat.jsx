@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 
+import { connect } from "react-redux";
+
 import seatsData from "../../Data/danhSachGhe.json";
 
-export default class Seat extends Component {
+class Seat extends Component {
   renderSeatMap = () => {
-    return seatsData.map((item, index) => {
+    return this.props.gheInfo.map((item, index) => {
       if (index === 0) {
         return (
           <tr key={index}>
@@ -60,8 +62,19 @@ export default class Seat extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return { ...state.datVeReducer };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
+    gheDangDat: (ghe) => {
+      dispatch({
+        type: "GHE_DANG_DAT",
+        payload: ghe,
+      });
+    },
+  };
+};
 
-  }
-}
+export default connect(mapStateToProps, mapDispatchToProps)(Seat);

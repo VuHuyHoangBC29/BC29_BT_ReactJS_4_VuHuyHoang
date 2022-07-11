@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
-export default class SeatTable extends Component {
+import { connect } from "react-redux";
+
+class SeatTable extends Component {
   render() {
     return (
       <div>
@@ -36,13 +38,35 @@ export default class SeatTable extends Component {
                   .reduce((previousValue, currentValue) => {
                     return (previousValue += currentValue.gia);
                   }, 0)
-                  .toLocaleString()}
+                  .toLocaleString()}{" "}
+                VNĐ
               </td>
             </tfoot>
           </table>
         </div>
-        <button className="btn btn-success">ĐẶT VÉ</button>
+        <button
+          onClick={() => this.props.xacNhanDatVe()}
+          className="btn btn-success"
+        >
+          ĐẶT VÉ
+        </button>
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return { ...state.datVeReducer };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    xacNhanDatVe: () => {
+      dispatch({
+        type: "XAC_NHAN_DAT_VE",
+      });
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SeatTable);
