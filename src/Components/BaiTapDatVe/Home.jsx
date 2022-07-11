@@ -26,6 +26,14 @@ export default class Home extends Component {
     });
   };
 
+  // datVe = (arr) => {
+  //   if (arr === false) {
+  //     alert("Vui lòng chọn ghế!");
+  //   } else if (window.confirm("Xác nhận đặt vé?")) {
+  //     console.log(arr);
+  //   }
+  // };
+
   render() {
     return (
       <div id="home">
@@ -38,7 +46,9 @@ export default class Home extends Component {
           </div>
 
           <div className="col-lg-5">
-            <SeatInfo />
+            <SeatInfo
+              danhSachGheDangDat={this.state.danhSachGheDangDat}
+            />
           </div>
         </div>
       </div>

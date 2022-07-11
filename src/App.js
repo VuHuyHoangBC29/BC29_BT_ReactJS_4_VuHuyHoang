@@ -4,7 +4,7 @@ import Home from "./Components/BaiTapDatVe/Home";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Home />
     </div>
   );

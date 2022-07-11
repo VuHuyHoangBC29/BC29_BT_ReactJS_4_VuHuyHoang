@@ -56,8 +56,10 @@ export default class SeatInfo extends Component {
           </div>
         </div>
 
-        <div>
-          <SeatTable />
+        <div className="pl-5 mt-5">
+          <SeatTable
+            danhSachGheDangDat={this.props.danhSachGheDangDat}
+          />
         </div>
       </div>
     );

@@ -3,26 +3,6 @@ import React, { Component } from "react";
 import seatsData from "../../Data/danhSachGhe.json";
 
 export default class Seat extends Component {
-  // renderSeatColumn = (seatsData) => {
-  //   return seatsData.danhSachGhe.map((ele) => {
-  //     return (
-  //       <div key={ele.soGhe} className="rowNumber">
-  //         {ele.soGhe}
-  //       </div>
-  //     );
-  //   });
-  // };
-
-  // renderSeatPosition = (ele, index) => {
-  //   return seatsData.danhSachGhe.map((ele) => {
-  //     return (
-  //       <div key={ele.soGhe} className="ghe">
-  //         {ele.soGhe}
-  //       </div>
-  //     );
-  //   });
-  // };
-
   renderSeatMap = () => {
     return seatsData.map((item, index) => {
       if (index === 0) {
@@ -77,5 +57,11 @@ export default class Seat extends Component {
 
   render() {
     return <div>{this.renderSeatMap()}</div>;
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+
   }
 }
