@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import seatsData from "../../Data/danhSachGhe.json";
+import { createAction } from "../../Store/Actions";
+import { GHE_DANG_DAT } from "../../Store/Actions/type";
 
 class Seat extends Component {
   renderSeatMap = () => {
@@ -42,7 +44,10 @@ class Seat extends Component {
                 return (
                   <td key={ghe.soGhe} className="p-3">
                     <button
-                      onClick={() => this.props.gheDangDat(ghe)}
+                      onClick={() =>
+                        this.props.dispatch(createAction(GHE_DANG_DAT, ghe))
+                      }
+                      // onClick={() => this.props.gheDangDat(ghe)}
                       className={`ghe ${classGheDaDat} ${classGheDangDat}`}
                     >
                       {ghe.soGhe}
@@ -66,15 +71,15 @@ const mapStateToProps = (state) => {
   return { ...state.datVeReducer };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    gheDangDat: (ghe) => {
-      dispatch({
-        type: "GHE_DANG_DAT",
-        payload: ghe,
-      });
-    },
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     gheDangDat: (ghe) => {
+//       dispatch({
+//         type: "GHE_DANG_DAT",
+//         payload: ghe,
+//       });
+//     },
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Seat);
+export default connect(mapStateToProps)(Seat);

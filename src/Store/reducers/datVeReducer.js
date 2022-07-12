@@ -45,7 +45,6 @@ export const datVeReducer = (state = DEFAULT_STATE, { type, payload }) => {
       state.danhSachGheDangDat = danhSachGheCapNhat;
 
       state.gheInfo = gheInfoCapNhat;
-      console.log(state.gheInfo);
       return { ...state };
     }
 

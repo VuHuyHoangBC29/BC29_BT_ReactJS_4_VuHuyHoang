@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
+import { createAction } from "../../Store/Actions";
+import { XAC_NHAN_DAT_VE } from "../../Store/Actions/type";
 
 class SeatTable extends Component {
   render() {
@@ -45,7 +47,8 @@ class SeatTable extends Component {
           </table>
         </div>
         <button
-          onClick={() => this.props.xacNhanDatVe()}
+          onClick={() => this.props.dispatch(createAction(XAC_NHAN_DAT_VE))}
+          // onClick={() => this.props.xacNhanDatVe()}
           className="btn btn-success"
         >
           ĐẶT VÉ
@@ -59,14 +62,14 @@ const mapStateToProps = (state) => {
   return { ...state.datVeReducer };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    xacNhanDatVe: () => {
-      dispatch({
-        type: "XAC_NHAN_DAT_VE",
-      });
-    },
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     xacNhanDatVe: () => {
+//       dispatch({
+//         type: "XAC_NHAN_DAT_VE",
+//       });
+//     },
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SeatTable);
+export default connect(mapStateToProps)(SeatTable);
