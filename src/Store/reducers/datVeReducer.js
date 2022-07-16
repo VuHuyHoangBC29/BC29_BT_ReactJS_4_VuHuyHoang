@@ -24,6 +24,20 @@ export const datVeReducer = (state = DEFAULT_STATE, { type, payload }) => {
       return { ...state };
     }
 
+    case "HUY_GHE_DANG_DAT": {
+      let danhSachGheCapNhat = [...state.danhSachGheDangDat];
+      let index = danhSachGheCapNhat.findIndex(
+        (gheDD) => gheDD.soGhe === payload.soGhe
+      );
+
+      if (index !== -1) {
+        danhSachGheCapNhat.splice(index, 1);
+      }
+      state.danhSachGheDangDat = danhSachGheCapNhat;
+
+      return { ...state };
+    }
+
     case "XAC_NHAN_DAT_VE": {
       let danhSachGheCapNhat = [...state.danhSachGheDangDat];
       let gheInfoCapNhat = [...state.gheInfo];

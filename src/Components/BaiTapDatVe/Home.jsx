@@ -37,17 +37,18 @@ export default class Home extends Component {
   render() {
     return (
       <div id="home">
+        <div id="home_bg"></div>
         <div className="row pt-3">
-          <div className="col-lg-7">
+          <div className="col-sm-12 col-lg-12 col-xl-8">
             <Screen
-              // gheDangDat={this.gheDangDat}
-              // danhSachGheDangDat={this.state.danhSachGheDangDat}
+            // gheDangDat={this.gheDangDat}
+            // danhSachGheDangDat={this.state.danhSachGheDangDat}
             />
           </div>
 
-          <div className="col-lg-5">
+          <div className="col-sm-12 col-md-12 col-lg-12 col-xl-4">
             <SeatInfo
-              // danhSachGheDangDat={this.state.danhSachGheDangDat}
+            // danhSachGheDangDat={this.state.danhSachGheDangDat}
             />
           </div>
         </div>

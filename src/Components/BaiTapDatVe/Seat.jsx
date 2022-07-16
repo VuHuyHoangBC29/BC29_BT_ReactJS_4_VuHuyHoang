@@ -16,7 +16,7 @@ class Seat extends Component {
             <td>
               {item.danhSachGhe.map((ghe) => {
                 return (
-                  <td key={ghe.soGhe} className="p-3">
+                  <td key={ghe.soGhe} className="p-2">
                     <button disabled className="rowNumber">
                       {ghe.soGhe}
                     </button>
@@ -42,7 +42,7 @@ class Seat extends Component {
                 }
 
                 return (
-                  <td key={ghe.soGhe} className="p-3">
+                  <td key={ghe.soGhe} className="p-2">
                     <button
                       onClick={() =>
                         this.props.dispatch(createAction(GHE_DANG_DAT, ghe))
@@ -63,7 +63,7 @@ class Seat extends Component {
   };
 
   render() {
-    return <div>{this.renderSeatMap()}</div>;
+    return <div id="seatMap">{this.renderSeatMap()}</div>;
   }
 }
 

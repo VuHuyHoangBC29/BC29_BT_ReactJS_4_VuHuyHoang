@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createAction } from "../../Store/Actions";
 import { XAC_NHAN_DAT_VE } from "../../Store/Actions/type";
+import { HUY_GHE_DANG_DAT } from "../../Store/Actions/type";
 
 class SeatTable extends Component {
   render() {
@@ -21,6 +22,7 @@ class SeatTable extends Component {
               <tr>
                 <th>Số ghế</th>
                 <th>Giá</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -29,6 +31,22 @@ class SeatTable extends Component {
                   <tr style={{ color: "orange" }} key={ele.soGhe}>
                     <td>{ele.soGhe}</td>
                     <td>{ele.gia}</td>
+                    <td>
+                      <button
+                        onClick={() => {
+                          this.props.dispatch(
+                            createAction(HUY_GHE_DANG_DAT, ele)
+                          );
+                        }}
+                        style={{
+                          color: "red",
+                          backgroundColor: "transparent",
+                          border: "none",
+                        }}
+                      >
+                        X
+                      </button>
+                    </td>
                   </tr>
                 );
               })}
